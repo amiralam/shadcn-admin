@@ -33,7 +33,7 @@ export const sidebarData: SidebarData = {
           icon: LayoutDashboard,
         },
         {
-          title: 'Invoice Analysis',
+          title: 'Invoices',
           url: '/invoices',
           icon: FileText,
         },

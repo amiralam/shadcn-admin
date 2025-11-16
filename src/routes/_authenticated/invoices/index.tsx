@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { InvoiceAnalysis } from '@/features/invoices'
+import { InvoicesList } from '@/features/invoices/components/invoices-list'
 
 export const Route = createFileRoute('/_authenticated/invoices/')({
-  component: InvoiceAnalysis,
+  component: InvoicesList,
 })

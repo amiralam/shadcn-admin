@@ -72,7 +72,7 @@ export function InvoiceDashboard() {
             Overview of your carrier invoice analytics and insights
           </p>
         </div>
-        <Link to='/invoices'>
+        <Link to='/invoices/analyze'>
           <Button>
             <FileText className='mr-2 size-4' />
             Analyze New Invoice
@@ -193,7 +193,7 @@ export function InvoiceDashboard() {
             <CardDescription>Common tasks and features</CardDescription>
           </CardHeader>
           <CardContent className='space-y-2'>
-            <Link to='/invoices'>
+            <Link to='/invoices/analyze'>
               <Button variant='outline' className='w-full justify-start' size='lg'>
                 <FileText className='mr-2 size-4' />
                 Upload New Invoice
