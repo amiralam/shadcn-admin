@@ -2,11 +2,13 @@ import {
   FileText,
   TrendingUp,
   DollarSign,
-  AlertCircle,
   Package,
   BarChart3,
   ArrowUpRight,
-  ArrowDownRight,
+  Scale,
+  Truck,
+  Fuel,
+  Receipt,
 } from 'lucide-react'
 import {
   Card,
@@ -18,15 +20,31 @@ import {
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Link } from '@tanstack/react-router'
+import { Progress } from '@/components/ui/progress'
 
 export function InvoiceDashboard() {
   // Mock data - replace with real data from API
   const stats = {
     totalInvoices: 24,
-    totalSpend: 156750.0,
-    savingsIdentified: 8420.0,
+    totalShipments: 3480,
+    totalBilled: 156750.0,
+    totalPotentialSavings: 8420.0,
+    totalFreight: 122500.0,
+    totalFuel: 18200.0,
+    totalExtraCharges: 11050.0,
+    totalWeight: 52200, // in lbs
     pendingReview: 3,
   }
+
+  // Calculated metrics
+  const avgPerInvoice = stats.totalBilled / stats.totalInvoices
+  const avgSavingsPerInvoice = stats.totalPotentialSavings / stats.totalInvoices
+  const savingsPercent = (stats.totalPotentialSavings / stats.totalBilled) * 100
+
+  const avgFreightPerShipment = stats.totalFreight / stats.totalShipments
+  const avgFuelPerShipment = stats.totalFuel / stats.totalShipments
+  const avgExtraChargesPerShipment = stats.totalExtraCharges / stats.totalShipments
+  const avgWeightPerShipment = stats.totalWeight / stats.totalShipments
 
   const recentInvoices = [
     {
@@ -62,6 +80,14 @@ export function InvoiceDashboard() {
     }).format(amount)
   }
 
+  const formatNumber = (num: number) => {
+    return new Intl.NumberFormat('en-US').format(num)
+  }
+
+  const formatWeight = (weight: number) => {
+    return `${formatNumber(weight)} lbs`
+  }
+
   return (
     <div className='space-y-8'>
       {/* Header */}
@@ -80,7 +106,7 @@ export function InvoiceDashboard() {
         </Link>
       </div>
 
-      {/* Stats Cards */}
+      {/* Primary Stats Cards */}
       <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-4'>
         <Card>
           <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
@@ -101,44 +127,244 @@ export function InvoiceDashboard() {
 
         <Card>
           <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-            <CardTitle className='text-sm font-medium'>Total Spend</CardTitle>
-            <DollarSign className='size-4 text-muted-foreground' />
+            <CardTitle className='text-sm font-medium'>Total Shipments</CardTitle>
+            <Package className='size-4 text-muted-foreground' />
           </CardHeader>
           <CardContent>
-            <div className='text-2xl font-bold'>{formatCurrency(stats.totalSpend)}</div>
+            <div className='text-2xl font-bold'>{formatNumber(stats.totalShipments)}</div>
             <p className='text-xs text-muted-foreground'>
-              <span className='inline-flex items-center text-red-600'>
-                <ArrowDownRight className='mr-1 size-3' />
-                -5%
-              </span>{' '}
-              from last month
+              Avg {Math.round(stats.totalShipments / stats.totalInvoices)} per invoice
             </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-            <CardTitle className='text-sm font-medium'>Savings Identified</CardTitle>
-            <TrendingUp className='size-4 text-muted-foreground' />
+            <CardTitle className='text-sm font-medium'>Total Billed</CardTitle>
+            <DollarSign className='size-4 text-muted-foreground' />
           </CardHeader>
           <CardContent>
-            <div className='text-2xl font-bold text-green-600'>
-              {formatCurrency(stats.savingsIdentified)}
-            </div>
-            <p className='text-xs text-muted-foreground'>5.4% of total spend</p>
+            <div className='text-2xl font-bold'>{formatCurrency(stats.totalBilled)}</div>
+            <p className='text-xs text-muted-foreground'>
+              Avg {formatCurrency(avgPerInvoice)} per invoice
+            </p>
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
-            <CardTitle className='text-sm font-medium'>Pending Review</CardTitle>
-            <AlertCircle className='size-4 text-muted-foreground' />
+            <CardTitle className='text-sm font-medium'>Potential Savings</CardTitle>
+            <TrendingUp className='size-4 text-muted-foreground' />
           </CardHeader>
           <CardContent>
-            <div className='text-2xl font-bold'>{stats.pendingReview}</div>
-            <p className='text-xs text-muted-foreground'>Requires attention</p>
+            <div className='text-2xl font-bold text-green-600'>
+              {formatCurrency(stats.totalPotentialSavings)}
+            </div>
+            <p className='text-xs text-muted-foreground'>
+              {savingsPercent.toFixed(1)}% of total spend
+            </p>
           </CardContent>
         </Card>
+      </div>
+
+      {/* Savings Breakdown */}
+      <Card className='border-green-500/20 bg-gradient-to-br from-green-500/5 to-emerald-600/5'>
+        <CardHeader>
+          <div className='flex items-center justify-between'>
+            <div>
+              <CardTitle className='flex items-center gap-2'>
+                <TrendingUp className='size-5 text-green-600' />
+                Savings Analysis
+              </CardTitle>
+              <CardDescription>Cost optimization opportunities across all invoices</CardDescription>
+            </div>
+            <div className='text-right'>
+              <div className='text-3xl font-bold text-green-600'>
+                {formatCurrency(stats.totalPotentialSavings)}
+              </div>
+              <p className='text-sm text-muted-foreground'>
+                {formatCurrency(avgSavingsPerInvoice)} avg per invoice
+              </p>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className='space-y-3'>
+            <div className='flex items-center justify-between'>
+              <span className='text-sm font-medium'>Savings Percentage</span>
+              <span className='text-sm text-muted-foreground'>{savingsPercent.toFixed(2)}%</span>
+            </div>
+            <Progress value={savingsPercent} className='h-2' />
+            <p className='text-xs text-muted-foreground'>
+              Based on {stats.totalInvoices} invoices with {formatNumber(stats.totalShipments)}{' '}
+              shipments analyzed
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Cost Breakdown Metrics */}
+      <div>
+        <h2 className='mb-4 text-xl font-semibold'>Cost Breakdown</h2>
+        <div className='grid gap-4 md:grid-cols-2 lg:grid-cols-3'>
+          {/* Freight Costs */}
+          <Card>
+            <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+              <CardTitle className='text-sm font-medium'>Freight Costs</CardTitle>
+              <Truck className='size-4 text-muted-foreground' />
+            </CardHeader>
+            <CardContent className='space-y-3'>
+              <div>
+                <div className='text-2xl font-bold'>{formatCurrency(stats.totalFreight)}</div>
+                <p className='text-xs text-muted-foreground'>Total across all invoices</p>
+              </div>
+              <div className='space-y-1'>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Per Shipment</span>
+                  <span className='font-medium'>{formatCurrency(avgFreightPerShipment)}</span>
+                </div>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Per Invoice</span>
+                  <span className='font-medium'>
+                    {formatCurrency(stats.totalFreight / stats.totalInvoices)}
+                  </span>
+                </div>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>% of Total</span>
+                  <span className='font-medium'>
+                    {((stats.totalFreight / stats.totalBilled) * 100).toFixed(1)}%
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Fuel Surcharge */}
+          <Card>
+            <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+              <CardTitle className='text-sm font-medium'>Fuel Surcharge</CardTitle>
+              <Fuel className='size-4 text-muted-foreground' />
+            </CardHeader>
+            <CardContent className='space-y-3'>
+              <div>
+                <div className='text-2xl font-bold'>{formatCurrency(stats.totalFuel)}</div>
+                <p className='text-xs text-muted-foreground'>Total across all invoices</p>
+              </div>
+              <div className='space-y-1'>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Per Shipment</span>
+                  <span className='font-medium'>{formatCurrency(avgFuelPerShipment)}</span>
+                </div>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Per Invoice</span>
+                  <span className='font-medium'>
+                    {formatCurrency(stats.totalFuel / stats.totalInvoices)}
+                  </span>
+                </div>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>% of Total</span>
+                  <span className='font-medium'>
+                    {((stats.totalFuel / stats.totalBilled) * 100).toFixed(1)}%
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Extra Charges */}
+          <Card>
+            <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+              <CardTitle className='text-sm font-medium'>Extra Charges</CardTitle>
+              <Receipt className='size-4 text-muted-foreground' />
+            </CardHeader>
+            <CardContent className='space-y-3'>
+              <div>
+                <div className='text-2xl font-bold'>{formatCurrency(stats.totalExtraCharges)}</div>
+                <p className='text-xs text-muted-foreground'>Total across all invoices</p>
+              </div>
+              <div className='space-y-1'>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Per Shipment</span>
+                  <span className='font-medium'>{formatCurrency(avgExtraChargesPerShipment)}</span>
+                </div>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Per Invoice</span>
+                  <span className='font-medium'>
+                    {formatCurrency(stats.totalExtraCharges / stats.totalInvoices)}
+                  </span>
+                </div>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>% of Total</span>
+                  <span className='font-medium'>
+                    {((stats.totalExtraCharges / stats.totalBilled) * 100).toFixed(1)}%
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+
+      {/* Shipment Metrics */}
+      <div>
+        <h2 className='mb-4 text-xl font-semibold'>Shipment Metrics</h2>
+        <div className='grid gap-4 md:grid-cols-2'>
+          <Card>
+            <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+              <CardTitle className='text-sm font-medium'>Weight Analysis</CardTitle>
+              <Scale className='size-4 text-muted-foreground' />
+            </CardHeader>
+            <CardContent className='space-y-3'>
+              <div>
+                <div className='text-2xl font-bold'>{formatWeight(stats.totalWeight)}</div>
+                <p className='text-xs text-muted-foreground'>Total weight shipped</p>
+              </div>
+              <div className='space-y-1'>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Average per Shipment</span>
+                  <span className='font-medium'>{avgWeightPerShipment.toFixed(1)} lbs</span>
+                </div>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Average per Invoice</span>
+                  <span className='font-medium'>
+                    {formatWeight(Math.round(stats.totalWeight / stats.totalInvoices))}
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className='flex flex-row items-center justify-between space-y-0 pb-2'>
+              <CardTitle className='text-sm font-medium'>Processing Status</CardTitle>
+              <BarChart3 className='size-4 text-muted-foreground' />
+            </CardHeader>
+            <CardContent className='space-y-3'>
+              <div>
+                <div className='text-2xl font-bold'>{stats.totalInvoices} Invoices</div>
+                <p className='text-xs text-muted-foreground'>Processed and analyzed</p>
+              </div>
+              <div className='space-y-1'>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Completed</span>
+                  <span className='font-medium text-green-600'>
+                    {stats.totalInvoices - stats.pendingReview}
+                  </span>
+                </div>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Pending Review</span>
+                  <span className='font-medium text-yellow-600'>{stats.pendingReview}</span>
+                </div>
+                <div className='flex items-center justify-between text-sm'>
+                  <span className='text-muted-foreground'>Success Rate</span>
+                  <span className='font-medium'>
+                    {(((stats.totalInvoices - stats.pendingReview) / stats.totalInvoices) * 100).toFixed(1)}%
+                  </span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
       {/* Content Grid */}
@@ -243,7 +469,8 @@ export function InvoiceDashboard() {
               <div className='flex-1'>
                 <p className='font-medium'>Potential savings detected</p>
                 <p className='text-sm text-muted-foreground'>
-                  We found $2,340 in potential savings on fuel surcharges across 5 invoices
+                  We found {formatCurrency(stats.totalPotentialSavings)} in potential savings across{' '}
+                  {stats.totalInvoices} invoices
                 </p>
               </div>
             </div>
@@ -252,9 +479,10 @@ export function InvoiceDashboard() {
                 <div className='size-2 rounded-full bg-yellow-500' />
               </div>
               <div className='flex-1'>
-                <p className='font-medium'>Billing anomaly identified</p>
+                <p className='font-medium'>Cost trend analysis</p>
                 <p className='text-sm text-muted-foreground'>
-                  Invoice INV-002 shows unusual accessorial charges compared to historical data
+                  Average shipment cost is {formatCurrency(stats.totalBilled / stats.totalShipments)}{' '}
+                  with {avgWeightPerShipment.toFixed(1)} lbs average weight
                 </p>
               </div>
             </div>
