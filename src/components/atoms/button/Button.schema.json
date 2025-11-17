@@ -1,0 +1,188 @@
+{
+  "$schema": "../../../registry/schemas/component-schema.json",
+  "componentName": "Button",
+  "category": "atom",
+  "description": "A versatile button component with multiple variants and sizes for user interactions",
+  "version": "1.0.0",
+
+  "props": {
+    "variant": {
+      "type": "enum",
+      "values": ["default", "destructive", "outline", "secondary", "ghost", "link"],
+      "default": "default",
+      "description": "Visual style variant of the button"
+    },
+    "size": {
+      "type": "enum",
+      "values": ["default", "sm", "lg", "icon"],
+      "default": "default",
+      "description": "Size of the button"
+    },
+    "asChild": {
+      "type": "boolean",
+      "default": false,
+      "description": "Render as child element (using Radix Slot)"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the button is disabled"
+    },
+    "type": {
+      "type": "enum",
+      "values": ["button", "submit", "reset"],
+      "default": "button",
+      "description": "HTML button type attribute"
+    },
+    "onClick": {
+      "type": "(event: React.MouseEvent) => void",
+      "required": false,
+      "description": "Click event handler"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes"
+    },
+    "children": {
+      "type": "ReactNode",
+      "required": true,
+      "description": "Button content (text, icons, or elements)"
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": ["@radix-ui/react-slot", "class-variance-authority"],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": true,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Supports all standard button ARIA attributes, keyboard navigation (Enter/Space), and includes focus-visible ring for keyboard users"
+  },
+
+  "usage": {
+    "complexity": "simple",
+    "commonUseCases": [
+      "Form submission",
+      "Navigation triggers",
+      "Modal actions",
+      "Data operations (save, delete, cancel)",
+      "Interactive controls"
+    ],
+    "bestPractices": [
+      "Use descriptive button text that indicates the action",
+      "Avoid generic text like 'Click here' or 'Submit'",
+      "Provide loading states for async operations",
+      "Use appropriate variant for action severity (destructive for delete)",
+      "Include icons with text for better clarity"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Primary Action",
+      "description": "Default button for primary actions",
+      "code": "<Button variant=\"default\">Save Changes</Button>"
+    },
+    {
+      "name": "Destructive Action",
+      "description": "Button for destructive actions like delete",
+      "code": "<Button variant=\"destructive\">Delete Account</Button>"
+    },
+    {
+      "name": "Form Submit",
+      "description": "Button for form submission",
+      "code": "<Button type=\"submit\" disabled={isLoading}>\n  {isLoading ? \"Submitting...\" : \"Submit\"}\n</Button>"
+    },
+    {
+      "name": "Icon Button",
+      "description": "Button with only an icon",
+      "code": "<Button variant=\"ghost\" size=\"icon\" aria-label=\"Delete\">\n  <TrashIcon className=\"h-4 w-4\" />\n</Button>"
+    },
+    {
+      "name": "Button with Icon",
+      "description": "Button with icon and text",
+      "code": "<Button>\n  <PlusIcon className=\"mr-2 h-4 w-4\" />\n  Add Item\n</Button>"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "Use for triggering actions, submitting forms, opening modals, or any interactive control that performs an operation",
+    "whenNotToUse": "Don't use for navigation (use Link instead), toggling states (use Switch), or selecting options (use Checkbox/Radio)",
+    "alternatives": [
+      "Link - for navigation to different pages/routes",
+      "Switch - for toggling boolean states",
+      "Checkbox - for selecting options",
+      "IconButton - for icon-only actions (use size='icon')"
+    ],
+    "commonMistakes": [
+      "Using buttons for navigation - use Link component instead",
+      "Missing loading states for async operations",
+      "Using icon-only buttons without aria-label",
+      "Not disabling buttons during async operations",
+      "Using generic text like 'Click here' instead of descriptive actions"
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Form Submit Button",
+        "description": "Button for form submission with loading state",
+        "example": "<form onSubmit={handleSubmit}>\n  <Button type=\"submit\" disabled={isLoading}>\n    {isLoading ? \"Submitting...\" : \"Submit\"}\n  </Button>\n</form>"
+      },
+      {
+        "pattern": "Modal Action Buttons",
+        "description": "Buttons in a modal footer",
+        "example": "<DialogFooter>\n  <Button variant=\"outline\" onClick={onCancel}>Cancel</Button>\n  <Button onClick={onConfirm}>Confirm</Button>\n</DialogFooter>"
+      },
+      {
+        "pattern": "Button Group",
+        "description": "Multiple related buttons",
+        "example": "<div className=\"flex gap-2\">\n  <Button variant=\"outline\">Cancel</Button>\n  <Button variant=\"secondary\">Save Draft</Button>\n  <Button>Publish</Button>\n</div>"
+      },
+      {
+        "pattern": "Icon Button with Tooltip",
+        "description": "Icon-only button with tooltip for context",
+        "example": "<Tooltip>\n  <TooltipTrigger asChild>\n    <Button variant=\"ghost\" size=\"icon\">\n      <TrashIcon className=\"h-4 w-4\" />\n    </Button>\n  </TooltipTrigger>\n  <TooltipContent>Delete</TooltipContent>\n</Tooltip>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["primary", "primary-foreground", "destructive", "secondary", "accent", "border"],
+    "spacing": ["2", "3", "4", "6"],
+    "typography": ["sm"],
+    "radius": ["md"]
+  },
+
+  "testing": {
+    "unitTests": true,
+    "accessibilityTests": true,
+    "visualRegressionTests": false,
+    "coverage": 85
+  },
+
+  "storybook": true,
+
+  "tags": ["interactive", "form", "action", "navigation"],
+
+  "relatedComponents": ["Link", "IconButton", "DropdownMenu", "Dialog"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-17",
+      "changes": [
+        "Initial release with full AI-ready documentation",
+        "6 variants: default, destructive, outline, secondary, ghost, link",
+        "4 sizes: default, sm, lg, icon",
+        "Full accessibility support",
+        "Loading state support",
+        "Icon integration"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,376 @@
+# COMPONENT: ComponentName
+
+VERSION: 1.0.0
+CATEGORY: atom
+COMPLEXITY: simple
+WCAG: AA
+
+---
+
+## Overview
+
+Brief description of what the component does and its primary purpose.
+
+### When to Use
+- Use case scenario 1
+- Use case scenario 2
+- Use case scenario 3
+
+### When NOT to Use
+- Anti-pattern 1 - use [AlternativeComponent] instead
+- Anti-pattern 2
+- Anti-pattern 3
+
+---
+
+## Installation
+
+```bash
+# Using the component CLI (coming soon)
+npm run components add component-name
+
+# Or copy the component manually
+# Copy from src/components/atoms/component-name/
+```
+
+---
+
+## Quick Start
+
+```tsx
+import { ComponentName } from "@/components/atoms/component-name"
+
+function Example() {
+  return (
+    <ComponentName variant="default" size="md">
+      Content here
+    </ComponentName>
+  )
+}
+```
+
+---
+
+## Props API
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `"default" \| "secondary"` | `"default"` | Visual style variant |
+| `size` | `"sm" \| "md" \| "lg"` | `"md"` | Size of the component |
+| `disabled` | `boolean` | `false` | Disables the component |
+| `className` | `string` | `undefined` | Additional CSS classes |
+| `children` | `ReactNode` | required | Component content |
+
+---
+
+## Variants
+
+### Default
+
+Standard appearance for most use cases.
+
+```tsx
+<ComponentName variant="default">
+  Default Content
+</ComponentName>
+```
+
+### Secondary
+
+Alternative visual style for secondary actions or content.
+
+```tsx
+<ComponentName variant="secondary">
+  Secondary Content
+</ComponentName>
+```
+
+---
+
+## Sizes
+
+### Small
+
+```tsx
+<ComponentName size="sm">Small</ComponentName>
+```
+
+### Medium (Default)
+
+```tsx
+<ComponentName size="md">Medium</ComponentName>
+```
+
+### Large
+
+```tsx
+<ComponentName size="lg">Large</ComponentName>
+```
+
+---
+
+## State Variations
+
+### Disabled
+
+```tsx
+<ComponentName disabled>
+  Disabled Content
+</ComponentName>
+```
+
+---
+
+## Composition Patterns
+
+### Pattern 1: With Icon
+
+```tsx
+import { Icon } from "lucide-react"
+
+<ComponentName>
+  <Icon className="mr-2 h-4 w-4" />
+  With Icon
+</ComponentName>
+```
+
+### Pattern 2: Combination Pattern
+
+```tsx
+<div className="flex gap-2">
+  <ComponentName variant="default">First</ComponentName>
+  <ComponentName variant="secondary">Second</ComponentName>
+</div>
+```
+
+---
+
+## Accessibility
+
+### ARIA Attributes
+
+The component automatically includes:
+- `role`: Appropriate ARIA role
+- `aria-disabled`: When disabled prop is true
+- `aria-label`: When needed for screen readers
+
+### Keyboard Navigation
+
+- **Enter/Space**: Activate the component (if interactive)
+- **Tab**: Focus navigation
+- **Shift+Tab**: Reverse focus navigation
+
+### Screen Reader Support
+
+The component is fully compatible with screen readers and announces:
+- Component state (enabled/disabled)
+- Current variant and size
+- Content changes
+
+---
+
+## Design Tokens
+
+This component uses the following design tokens:
+
+**Colors:**
+- `primary` - Primary color
+- `foreground` - Text color
+
+**Spacing:**
+- `2` (8px) - Internal padding
+- `4` (16px) - Component height
+
+**Typography:**
+- `sm` (14px) - Text size
+
+**Radius:**
+- `md` - Border radius
+
+---
+
+## Best Practices
+
+### ✅ Do
+
+- Use semantic variants (default for primary, secondary for supporting)
+- Provide descriptive content
+- Use appropriate sizes for context
+- Follow accessibility guidelines
+
+### ❌ Don't
+
+- Don't use ambiguous or unclear content
+- Don't override core functionality with className
+- Don't nest interactive elements
+- Don't skip accessibility attributes
+
+---
+
+## Common Patterns
+
+### Form Integration
+
+```tsx
+<form onSubmit={handleSubmit}>
+  <ComponentName type="submit">
+    Submit Form
+  </ComponentName>
+</form>
+```
+
+### Loading State
+
+```tsx
+<ComponentName disabled={isLoading}>
+  {isLoading ? "Loading..." : "Click me"}
+</ComponentName>
+```
+
+---
+
+## AI Agent Guidelines
+
+### When to Use This Component
+
+AI agents should use this component when:
+- Specific use case 1
+- Specific use case 2
+- Specific use case 3
+
+### When to Choose Alternatives
+
+Consider using alternative components when:
+- Alternative scenario 1 → Use [AlternativeComponent]
+- Alternative scenario 2 → Use [AnotherComponent]
+
+### Common Mistakes to Avoid
+
+1. **Mistake 1**: Description
+   - ❌ Bad: `<ComponentName>Bad Example</ComponentName>`
+   - ✅ Good: `<ComponentName variant="default">Good Example</ComponentName>`
+
+2. **Mistake 2**: Description
+   - ❌ Bad: Example
+   - ✅ Good: Example
+
+### Composition Recommendations
+
+**Frequently Paired With:**
+- `RelatedComponent1` - for related functionality
+- `RelatedComponent2` - for combined patterns
+
+**Typical Hierarchy:**
+```
+Container
+└── ComponentName
+    └── Child elements
+```
+
+---
+
+## Related Components
+
+- **[RelatedComponent1]**: Description of relationship
+- **[RelatedComponent2]**: Description of relationship
+- **[AlternativeComponent]**: When to use this instead
+
+---
+
+## Examples
+
+### Example 1: Basic Usage
+
+```tsx
+import { ComponentName } from "@/components/atoms/component-name"
+
+export function BasicExample() {
+  return (
+    <ComponentName variant="default">
+      Basic Example
+    </ComponentName>
+  )
+}
+```
+
+### Example 2: With State
+
+```tsx
+import { ComponentName } from "@/components/atoms/component-name"
+import { useState } from "react"
+
+export function StatefulExample() {
+  const [isActive, setIsActive] = useState(false)
+
+  return (
+    <ComponentName
+      variant={isActive ? "default" : "secondary"}
+      onClick={() => setIsActive(!isActive)}
+    >
+      {isActive ? "Active" : "Inactive"}
+    </ComponentName>
+  )
+}
+```
+
+---
+
+## Troubleshooting
+
+### Issue 1: Common Problem
+
+**Problem**: Description of the problem
+
+**Solution**: How to fix it
+
+### Issue 2: Another Problem
+
+**Problem**: Description
+
+**Solution**: Fix
+
+---
+
+## Technical Details
+
+### Component Structure
+
+```
+component-name/
+├── ComponentName.tsx         # Main component
+├── ComponentName.schema.json # Component schema
+├── ComponentName.md          # This documentation
+├── ComponentName.test.tsx    # Unit tests
+├── ComponentName.stories.tsx # Storybook stories
+└── index.ts                  # Exports
+```
+
+### Dependencies
+
+- **Internal**: `cn` utility function
+- **External**: None
+- **Components**: None
+
+### Browser Support
+
+- Chrome: Latest 2 versions
+- Firefox: Latest 2 versions
+- Safari: Latest 2 versions
+- Edge: Latest 2 versions
+
+---
+
+## Changelog
+
+### 1.0.0 (2024-11-01)
+
+- Initial release
+- Basic functionality
+- Accessibility support
+- Full documentation
+
+---
+
+**Last Updated**: November 2024
+**Maintained By**: Engineering Team
+**Status**: Stable

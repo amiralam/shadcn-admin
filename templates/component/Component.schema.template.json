@@ -1,0 +1,110 @@
+{
+  "$schema": "../../src/registry/schemas/component-schema.json",
+  "componentName": "ComponentName",
+  "category": "atom",
+  "description": "Brief description of what this component does",
+  "version": "1.0.0",
+
+  "props": {
+    "variant": {
+      "type": "enum",
+      "values": ["default", "secondary"],
+      "default": "default",
+      "description": "Visual style variant"
+    },
+    "size": {
+      "type": "enum",
+      "values": ["sm", "md", "lg"],
+      "default": "md",
+      "description": "Size of the component"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the component is disabled"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes"
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": [],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": true,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Component meets WCAG 2.1 AA standards"
+  },
+
+  "usage": {
+    "complexity": "simple",
+    "commonUseCases": [
+      "Use case 1",
+      "Use case 2"
+    ],
+    "bestPractices": [
+      "Best practice 1",
+      "Best practice 2"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Basic Usage",
+      "description": "Simple example",
+      "code": "<ComponentName>Content</ComponentName>"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "When you need to...",
+    "whenNotToUse": "Avoid using when...",
+    "alternatives": ["AlternativeComponent"],
+    "commonMistakes": [
+      "Don't forget to..."
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Pattern Name",
+        "description": "Description of the pattern",
+        "example": "<ComponentName>...</ComponentName>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["primary", "foreground"],
+    "spacing": ["2", "4"],
+    "typography": ["sm", "base"],
+    "radius": ["md"]
+  },
+
+  "testing": {
+    "unitTests": true,
+    "accessibilityTests": true,
+    "visualRegressionTests": false,
+    "coverage": 80
+  },
+
+  "storybook": false,
+
+  "tags": ["interactive", "form"],
+
+  "relatedComponents": ["RelatedComponent1", "RelatedComponent2"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-01",
+      "changes": ["Initial release"]
+    }
+  ]
+}

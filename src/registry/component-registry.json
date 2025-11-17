@@ -1,0 +1,28 @@
+{
+  "$schema": "./schemas/component-schema.json",
+  "version": "1.0.0",
+  "lastUpdated": "2024-11-17",
+  "components": [
+    {
+      "name": "Button",
+      "category": "atom",
+      "path": "src/components/atoms/button/Button.tsx",
+      "schema": "src/components/atoms/button/Button.schema.json",
+      "documentation": "src/components/atoms/button/Button.md",
+      "internalDependencies": ["cn"],
+      "externalDependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "componentDependencies": [],
+      "tags": ["interactive", "form", "action", "navigation", "clickable"],
+      "complexity": "simple",
+      "lastUpdated": "2024-11-17",
+      "version": "1.0.0",
+      "description": "A versatile button component with multiple variants and sizes for user interactions",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false
+    }
+  ]
+}

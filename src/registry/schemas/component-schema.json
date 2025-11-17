@@ -1,0 +1,314 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://shadcn-admin.com/schemas/component.schema.json",
+  "title": "Component Metadata Schema",
+  "description": "Schema for AI-ready component metadata in the shadcn-admin component system",
+  "type": "object",
+  "required": ["componentName", "category", "version", "props", "accessibility"],
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Reference to this schema"
+    },
+    "componentName": {
+      "type": "string",
+      "description": "The name of the component (PascalCase)",
+      "pattern": "^[A-Z][a-zA-Z0-9]*$"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["atom", "molecule", "organism", "template", "pattern"],
+      "description": "The atomic design category of the component"
+    },
+    "description": {
+      "type": "string",
+      "description": "A clear, concise description of what the component does"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version number"
+    },
+    "props": {
+      "type": "object",
+      "description": "Component props definition",
+      "patternProperties": {
+        "^[a-zA-Z][a-zA-Z0-9]*$": {
+          "type": "object",
+          "required": ["type", "description"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "TypeScript type of the prop",
+              "examples": ["string", "number", "boolean", "enum", "ReactNode", "() => void"]
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Possible values for enum types"
+            },
+            "default": {
+              "description": "Default value of the prop"
+            },
+            "required": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether the prop is required"
+            },
+            "description": {
+              "type": "string",
+              "description": "Description of what the prop does"
+            }
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "internal": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Internal dependencies (e.g., utility functions)"
+        },
+        "external": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "External package dependencies"
+        },
+        "components": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Other components this component depends on"
+        }
+      }
+    },
+    "accessibility": {
+      "type": "object",
+      "required": ["wcagLevel"],
+      "properties": {
+        "ariaSupport": {
+          "type": "boolean",
+          "description": "Whether the component implements ARIA attributes"
+        },
+        "keyboardNavigation": {
+          "type": "boolean",
+          "description": "Whether the component supports keyboard navigation"
+        },
+        "screenReaderOptimized": {
+          "type": "boolean",
+          "description": "Whether the component is optimized for screen readers"
+        },
+        "wcagLevel": {
+          "type": "string",
+          "enum": ["A", "AA", "AAA"],
+          "description": "WCAG compliance level"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional accessibility notes"
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "properties": {
+        "complexity": {
+          "type": "string",
+          "enum": ["simple", "moderate", "complex"],
+          "description": "Complexity level of using the component"
+        },
+        "commonUseCases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Common use cases for the component"
+        },
+        "bestPractices": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Best practices when using the component"
+        }
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "code"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the example"
+          },
+          "description": {
+            "type": "string",
+            "description": "Description of what the example demonstrates"
+          },
+          "code": {
+            "type": "string",
+            "description": "Example code snippet"
+          }
+        }
+      }
+    },
+    "aiGuidance": {
+      "type": "object",
+      "description": "Guidance specifically for AI agents",
+      "properties": {
+        "whenToUse": {
+          "type": "string",
+          "description": "When AI agents should use this component"
+        },
+        "whenNotToUse": {
+          "type": "string",
+          "description": "When AI agents should NOT use this component"
+        },
+        "alternatives": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Alternative components that could be used instead"
+        },
+        "commonMistakes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Common mistakes to avoid"
+        },
+        "compositionPatterns": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "pattern": {
+                "type": "string",
+                "description": "Name of the composition pattern"
+              },
+              "description": {
+                "type": "string",
+                "description": "Description of the pattern"
+              },
+              "example": {
+                "type": "string",
+                "description": "Code example of the pattern"
+              }
+            }
+          },
+          "description": "Common patterns for composing this component with others"
+        }
+      }
+    },
+    "designTokens": {
+      "type": "object",
+      "description": "Design tokens used by this component",
+      "properties": {
+        "colors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Color tokens used"
+        },
+        "spacing": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Spacing tokens used"
+        },
+        "typography": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Typography tokens used"
+        },
+        "radius": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Border radius tokens used"
+        }
+      }
+    },
+    "testing": {
+      "type": "object",
+      "properties": {
+        "unitTests": {
+          "type": "boolean",
+          "description": "Whether unit tests exist"
+        },
+        "accessibilityTests": {
+          "type": "boolean",
+          "description": "Whether accessibility tests exist"
+        },
+        "visualRegressionTests": {
+          "type": "boolean",
+          "description": "Whether visual regression tests exist"
+        },
+        "coverage": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Test coverage percentage"
+        }
+      }
+    },
+    "storybook": {
+      "type": "boolean",
+      "description": "Whether Storybook stories exist"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags for categorization and search"
+    },
+    "relatedComponents": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Related components that are commonly used together"
+    },
+    "changelog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["version", "date", "changes"],
+        "properties": {
+          "version": {
+            "type": "string",
+            "pattern": "^\\d+\\.\\d+\\.\\d+$"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "changes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
