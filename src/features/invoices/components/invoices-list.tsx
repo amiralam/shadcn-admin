@@ -233,7 +233,15 @@ export function InvoicesList() {
                 {filteredInvoices.length > 0 ? (
                   filteredInvoices.map((invoice) => (
                     <TableRow key={invoice.id}>
-                      <TableCell className='font-medium'>{invoice.invoiceNumber}</TableCell>
+                      <TableCell className='font-medium'>
+                        <Link
+                          to='/invoices/$invoiceId'
+                          params={{ invoiceId: invoice.id }}
+                          className='hover:underline'
+                        >
+                          {invoice.invoiceNumber}
+                        </Link>
+                      </TableCell>
                       <TableCell>
                         <div className='flex items-center gap-2'>
                           <div className='rounded-full bg-primary/10 p-1.5'>
@@ -259,9 +267,11 @@ export function InvoicesList() {
                       <TableCell>{getStatusBadge(invoice.status)}</TableCell>
                       <TableCell className='text-right'>
                         <div className='flex items-center justify-end gap-2'>
-                          <Button variant='ghost' size='icon' title='View details'>
-                            <Eye className='size-4' />
-                          </Button>
+                          <Link to='/invoices/$invoiceId' params={{ invoiceId: invoice.id }}>
+                            <Button variant='ghost' size='icon' title='View details'>
+                              <Eye className='size-4' />
+                            </Button>
+                          </Link>
                           <Button variant='ghost' size='icon' title='Download'>
                             <Download className='size-4' />
                           </Button>
