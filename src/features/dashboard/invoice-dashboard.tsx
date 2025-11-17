@@ -21,6 +21,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Link } from '@tanstack/react-router'
 import { Progress } from '@/components/ui/progress'
+import { Main } from '@/components/layout/main'
 
 export function InvoiceDashboard() {
   // Mock data - replace with real data from API
@@ -89,7 +90,7 @@ export function InvoiceDashboard() {
   }
 
   return (
-    <div className='space-y-8'>
+    <Main className='space-y-6'>
       {/* Header */}
       <div className='flex items-center justify-between'>
         <div>
@@ -495,6 +496,6 @@ export function InvoiceDashboard() {
           </Link>
         </CardContent>
       </Card>
-    </div>
+    </Main>
   )
 }

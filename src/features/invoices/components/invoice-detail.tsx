@@ -29,6 +29,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { Progress } from '@/components/ui/progress'
+import { Main } from '@/components/layout/main'
 
 // Mock data - replace with real API
 const mockInvoiceDetail = {
@@ -167,7 +168,7 @@ export function InvoiceDetail() {
   const analysisProgress = (invoice.summary.analyzedShipments / invoice.summary.totalShipments) * 100
 
   return (
-    <div className='space-y-6'>
+    <Main className='space-y-6'>
       {/* Header */}
       <div className='flex items-center justify-between'>
         <div className='flex items-center gap-4'>
@@ -472,6 +473,6 @@ export function InvoiceDetail() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </Main>
   )
 }

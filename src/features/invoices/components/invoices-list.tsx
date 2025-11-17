@@ -34,6 +34,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import { Main } from '@/components/layout/main'
 
 // Mock data - replace with real API data
 const mockInvoices = [
@@ -143,7 +144,7 @@ export function InvoicesList() {
   })
 
   return (
-    <div className='space-y-6'>
+    <Main className='space-y-6'>
       {/* Header */}
       <div className='flex items-center justify-between'>
         <div>
@@ -291,6 +292,6 @@ export function InvoicesList() {
           </div>
         </CardContent>
       </Card>
-    </div>
+    </Main>
   )
 }
