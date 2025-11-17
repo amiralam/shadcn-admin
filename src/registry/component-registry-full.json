@@ -1,0 +1,1548 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-11-17",
+  "totalComponents": 60,
+  "components": [
+    {
+      "name": "AlertDialog",
+      "category": "molecule",
+      "path": "src/components/ui/alert-dialog.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-alert-dialog"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "overlay"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Modal dialog for confirmations and important decisions",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Alert",
+      "category": "atom",
+      "path": "src/components/ui/alert.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "class-variance-authority"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "display"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Alert banner for displaying important messages",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Avatar",
+      "category": "atom",
+      "path": "src/components/ui/avatar.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-avatar"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "User profile picture or placeholder image",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Badge",
+      "category": "atom",
+      "path": "src/components/ui/badge.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "display"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Small status indicator or label for categorization",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Button",
+      "category": "atom",
+      "path": "src/components/ui/button.tsx",
+      "schema": "src/components/atoms/button/Button.schema.json",
+      "documentation": "src/components/atoms/button/Button.md",
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "interactive",
+        "form"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Interactive button with multiple variants and sizes",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "documented"
+    },
+    {
+      "name": "Calendar",
+      "category": "molecule",
+      "path": "src/components/ui/calendar.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react",
+        "react-day-picker"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Date picker calendar component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Card",
+      "category": "molecule",
+      "path": "src/components/ui/card.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "display"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Container for grouping related content",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Checkbox",
+      "category": "atom",
+      "path": "src/components/ui/checkbox.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-checkbox",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "interactive",
+        "form"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Checkbox input for boolean selections",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Collapsible",
+      "category": "atom",
+      "path": "src/components/ui/collapsible.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-collapsible"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Collapsible container for hiding/showing content",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Command",
+      "category": "molecule",
+      "path": "src/components/ui/command.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "cmdk",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Command palette for keyboard-driven navigation",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Dialog",
+      "category": "molecule",
+      "path": "src/components/ui/dialog.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "overlay"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Modal dialog for focused interactions",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "DropdownMenu",
+      "category": "molecule",
+      "path": "src/components/ui/dropdown-menu.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "overlay"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Dropdown menu with actionable items",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Form",
+      "category": "molecule",
+      "path": "src/components/ui/form.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-label",
+        "@radix-ui/react-slot",
+        "react-hook-form"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "form"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Form wrapper with validation support",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "InputOtp",
+      "category": "atom",
+      "path": "src/components/ui/input-otp.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "One-time password input field",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Input",
+      "category": "atom",
+      "path": "src/components/ui/input.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "interactive",
+        "form"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Text input field for user data entry",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Label",
+      "category": "atom",
+      "path": "src/components/ui/label.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-label"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "form"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Form label for associating text with controls",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Popover",
+      "category": "molecule",
+      "path": "src/components/ui/popover.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "overlay"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Floating content container",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "RadioGroup",
+      "category": "atom",
+      "path": "src/components/ui/radio-group.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-radio-group",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "interactive",
+        "form"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Radio button group for single selection",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "ScrollArea",
+      "category": "atom",
+      "path": "src/components/ui/scroll-area.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-scroll-area"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Custom scrollable area with styled scrollbar",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Select",
+      "category": "molecule",
+      "path": "src/components/ui/select.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-select",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "interactive",
+        "form"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Dropdown selection component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Separator",
+      "category": "atom",
+      "path": "src/components/ui/separator.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-separator"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Visual divider for content sections",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Sheet",
+      "category": "molecule",
+      "path": "src/components/ui/sheet.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-dialog",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "overlay"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Slide-out panel for additional content",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Sidebar",
+      "category": "organism",
+      "path": "src/components/ui/sidebar.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout",
+        "navigation"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Side navigation panel",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Skeleton",
+      "category": "atom",
+      "path": "src/components/ui/skeleton.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "display"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Loading placeholder animation",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Sonner",
+      "category": "atom",
+      "path": "src/components/ui/sonner.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "sonner"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Toast notification component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Switch",
+      "category": "atom",
+      "path": "src/components/ui/switch.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-switch"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "interactive",
+        "form"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Toggle switch for on/off states",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Table",
+      "category": "organism",
+      "path": "src/components/ui/table.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "display"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Data table for structured information",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Tabs",
+      "category": "molecule",
+      "path": "src/components/ui/tabs.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-tabs"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Tabbed interface for content organization",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Textarea",
+      "category": "atom",
+      "path": "src/components/ui/textarea.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "atom",
+        "form"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Multi-line text input field",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Tooltip",
+      "category": "molecule",
+      "path": "src/components/ui/tooltip.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-tooltip"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "overlay"
+      ],
+      "complexity": "simple",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Contextual information overlay on hover",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "AppSidebar",
+      "category": "organism",
+      "path": "src/components/layout/app-sidebar.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "AppSidebar layout component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "AppTitle",
+      "category": "organism",
+      "path": "src/components/layout/app-title.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "AppTitle layout component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "AuthenticatedLayout",
+      "category": "organism",
+      "path": "src/components/layout/authenticated-layout.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "AuthenticatedLayout layout component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Header",
+      "category": "organism",
+      "path": "src/components/layout/header.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Header layout component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Main",
+      "category": "organism",
+      "path": "src/components/layout/main.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Main layout component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "NavGroup",
+      "category": "organism",
+      "path": "src/components/layout/nav-group.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "NavGroup layout component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "NavUser",
+      "category": "organism",
+      "path": "src/components/layout/nav-user.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "NavUser layout component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "TeamSwitcher",
+      "category": "organism",
+      "path": "src/components/layout/team-switcher.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "TeamSwitcher layout component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "TopNav",
+      "category": "organism",
+      "path": "src/components/layout/top-nav.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "TopNav layout component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "DataTableBulkActions",
+      "category": "organism",
+      "path": "src/components/data-table/bulk-actions.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "data",
+        "table"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Data table bulkactions component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "DataTableColumnHeader",
+      "category": "organism",
+      "path": "src/components/data-table/column-header.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-icons"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "data",
+        "table"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Data table columnheader component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "DataTableFacetedFilter",
+      "category": "organism",
+      "path": "src/components/data-table/faceted-filter.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-icons"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "data",
+        "table"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Data table facetedfilter component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "DataTablePagination",
+      "category": "organism",
+      "path": "src/components/data-table/pagination.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-icons"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "data",
+        "table"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Data table pagination component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "DataTableToolbar",
+      "category": "organism",
+      "path": "src/components/data-table/toolbar.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-icons"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "data",
+        "table"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Data table toolbar component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "DataTableViewOptions",
+      "category": "organism",
+      "path": "src/components/data-table/view-options.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-icons"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "data",
+        "table"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Data table viewoptions component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "ComingSoon",
+      "category": "organism",
+      "path": "src/components/coming-soon.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Coming soon placeholder component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "CommandMenu",
+      "category": "organism",
+      "path": "src/components/command-menu.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "navigation"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Global command menu for quick actions",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "ConfigDrawer",
+      "category": "molecule",
+      "path": "src/components/config-drawer.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-radio-group",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Configuration drawer panel",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "ConfirmDialog",
+      "category": "molecule",
+      "path": "src/components/confirm-dialog.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Confirmation dialog component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "DatePicker",
+      "category": "molecule",
+      "path": "src/components/date-picker.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "date-fns",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Date selection component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "LearnMore",
+      "category": "organism",
+      "path": "src/components/learn-more.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "@radix-ui/react-popover",
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "organism"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Learn more link component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "LongText",
+      "category": "organism",
+      "path": "src/components/long-text.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "organism"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Long text display component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "NavigationProgress",
+      "category": "organism",
+      "path": "src/components/navigation-progress.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "organism",
+        "layout",
+        "navigation"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Navigation progress indicator",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "PasswordInput",
+      "category": "molecule",
+      "path": "src/components/password-input.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule",
+        "form"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Password input with show/hide toggle",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "ProfileDropdown",
+      "category": "molecule",
+      "path": "src/components/profile-dropdown.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "User profile dropdown menu",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "Search",
+      "category": "molecule",
+      "path": "src/components/search.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Search input component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "SelectDropdown",
+      "category": "molecule",
+      "path": "src/components/select-dropdown.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Custom select dropdown",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "SignOutDialog",
+      "category": "molecule",
+      "path": "src/components/sign-out-dialog.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Sign out confirmation dialog",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "SkipToMain",
+      "category": "organism",
+      "path": "src/components/skip-to-main.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [],
+      "componentDependencies": [],
+      "tags": [
+        "organism"
+      ],
+      "complexity": "complex",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Skip to main content link for accessibility",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    },
+    {
+      "name": "ThemeSwitch",
+      "category": "molecule",
+      "path": "src/components/theme-switch.tsx",
+      "schema": null,
+      "documentation": null,
+      "internalDependencies": [
+        "cn"
+      ],
+      "externalDependencies": [
+        "lucide-react"
+      ],
+      "componentDependencies": [],
+      "tags": [
+        "molecule"
+      ],
+      "complexity": "moderate",
+      "lastUpdated": "2025-11-17",
+      "version": "1.0.0",
+      "description": "Theme toggle component",
+      "wcagLevel": "AA",
+      "hasTesting": false,
+      "hasStorybook": false,
+      "migrationStatus": "pending"
+    }
+  ]
+}
