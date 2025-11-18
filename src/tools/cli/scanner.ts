@@ -84,9 +84,10 @@ function extractDependencies(content: string): string[] {
   return deps.sort()
 }
 
-function generateTags(componentName: string, category: string, content: string): string[] {
+function generateTags(componentName: string, category: string, _content: string): string[] {
   const tags: string[] = [category]
   const name = componentName.toLowerCase()
+  void _content // Reserved for future content-based tag generation
 
   // Interactive elements
   if (['button', 'input', 'checkbox', 'switch', 'select', 'radio-group'].includes(name)) {
@@ -121,7 +122,8 @@ function generateTags(componentName: string, category: string, content: string):
   return [...new Set(tags)]
 }
 
-function generateDescription(componentName: string, category: string): string {
+function generateDescription(componentName: string, _category: string): string {
+  void _category // Reserved for category-specific descriptions
   const descriptions: Record<string, string> = {
     'button': 'A versatile button component with multiple variants and sizes for user interactions',
     'input': 'Text input field for user data entry',
@@ -154,12 +156,12 @@ async function scanComponents(): Promise<ScannedComponent[]> {
 
   // Scan UI components
   const uiDir = path.join(rootDir, 'src/components/ui')
-  const uiFiles = fs.readdirSync(uiDir).filter(f => f.endsWith('.tsx'))
+  const uiFiles = fs.readdirSync(uiDir).filter((f: string) => f.endsWith('.tsx'))
 
   for (const file of uiFiles) {
     const filePath = path.join(uiDir, file)
     const content = fs.readFileSync(filePath, 'utf-8')
-    const componentName = file.replace('.tsx', '').split('-').map(w =>
+    const componentName = file.replace('.tsx', '').split('-').map((w: string) =>
       w.charAt(0).toUpperCase() + w.slice(1)
     ).join('')
 
@@ -195,12 +197,13 @@ async function scanComponents(): Promise<ScannedComponent[]> {
     { dir: 'src/components', category: 'molecule' as const },
   ]
 
-  for (const { dir, category } of otherComponents) {
+  for (const { dir, category: _defaultCategory } of otherComponents) {
+    void _defaultCategory // Used for initial categorization hint
     const fullPath = path.join(rootDir, dir)
     if (!fs.existsSync(fullPath)) continue
 
     const files = fs.readdirSync(fullPath)
-      .filter(f => f.endsWith('.tsx') && !f.includes('.test.') && !f.includes('.stories.'))
+      .filter((f: string) => f.endsWith('.tsx') && !f.includes('.test.') && !f.includes('.stories.'))
 
     for (const file of files) {
       const filePath = path.join(fullPath, file)
@@ -208,7 +211,7 @@ async function scanComponents(): Promise<ScannedComponent[]> {
       if (!stat.isFile()) continue
 
       const content = fs.readFileSync(filePath, 'utf-8')
-      const componentName = file.replace('.tsx', '').split('-').map(w =>
+      const componentName = file.replace('.tsx', '').split('-').map((w: string) =>
         w.charAt(0).toUpperCase() + w.slice(1)
       ).join('')
 

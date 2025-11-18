@@ -223,6 +223,15 @@ export function validateImportStatement(
     }
   }
 
+  // Check if import path matches expected
+  const normalizedExpected = expectedPath.replace('src/', '@/').replace('.tsx', '').replace('.ts', '')
+  if (!importStatement.includes(normalizedExpected) && !importStatement.includes(componentName.toLowerCase())) {
+    return {
+      valid: false,
+      error: `Import path should match expected: ${normalizedExpected}`
+    }
+  }
+
   return { valid: true }
 }
 
