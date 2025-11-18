@@ -171,7 +171,8 @@ export class AgentAPI {
 
     try {
       // Dynamic import of schema
-      const schemaPath = component.schema.replace('src/', '../../').replace('.json', '')
+      // From src/registry/, we need ../ to get to src/
+      const schemaPath = component.schema.replace('src/', '../').replace('.json', '')
       const schema = await import(schemaPath + '.json')
       return schema.default || schema
     } catch (error) {

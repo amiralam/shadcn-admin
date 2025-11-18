@@ -5,9 +5,10 @@
  */
 
 import { discoveryTools } from './discovery'
+import { generationTools } from './generation'
 
 // Export all tools for registration
-export const allTools = [...discoveryTools]
+export const allTools = [...discoveryTools, ...generationTools]
 
 // Export tool handlers for direct use
 export {
@@ -19,3 +20,11 @@ export {
   listMolecules,
   listOrganisms
 } from './discovery'
+
+export {
+  loadSchema,
+  loadDocumentation,
+  generateImport,
+  generateUsage,
+  getComponentExamples
+} from './generation'

@@ -14,7 +14,15 @@ import {
   listOrganisms
 } from './tools/discovery'
 
-async function runTests() {
+import {
+  loadSchema,
+  loadDocumentation,
+  generateImport,
+  generateUsage,
+  getComponentExamples
+} from './tools/generation'
+
+async function runPhase1Tests() {
   console.log('Testing MCP Phase 1 Tools\n')
   console.log('='.repeat(50))
 
@@ -102,6 +110,121 @@ async function runTests() {
   documented.components.forEach((c) => {
     console.log(`   - ${c.name} (${c.category})`)
   })
+}
+
+async function runPhase2Tests() {
+  console.log('\n\nTesting MCP Phase 2 Tools\n')
+  console.log('='.repeat(50))
+
+  // Test 10: Load schema
+  console.log('\n10. Testing load_schema (Button):')
+  const schemaResult = await loadSchema({ name: 'Button' })
+  if ('error' in schemaResult) {
+    console.log(`   Error: ${schemaResult.message}`)
+  } else {
+    console.log(`   Component: ${schemaResult.componentName}`)
+    console.log(`   Category: ${schemaResult.category}`)
+    console.log(`   Has props: ${!!schemaResult.schema.props}`)
+    if (schemaResult.schema.props) {
+      const propNames = Object.keys(schemaResult.schema.props)
+      console.log(`   Props: ${propNames.join(', ')}`)
+    }
+  }
+
+  // Test 11: Load schema for non-documented component
+  console.log('\n11. Testing load_schema (Input - no schema):')
+  const noSchemaResult = await loadSchema({ name: 'Input' })
+  if ('error' in noSchemaResult) {
+    console.log(`   Error: ${noSchemaResult.error}`)
+    console.log(`   Message: ${noSchemaResult.message}`)
+  }
+
+  // Test 12: Load documentation
+  console.log('\n12. Testing load_documentation (Button):')
+  const docResult = await loadDocumentation({ name: 'Button' })
+  if ('error' in docResult) {
+    console.log(`   Error: ${docResult.message}`)
+  } else {
+    console.log(`   Component: ${docResult.componentName}`)
+    console.log(`   Path: ${docResult.path}`)
+    console.log(`   Content length: ${docResult.documentation.length} chars`)
+    console.log(`   Preview: ${docResult.documentation.substring(0, 100)}...`)
+  }
+
+  // Test 13: Generate import
+  console.log('\n13. Testing generate_import (Button):')
+  const importResult = generateImport({ name: 'Button' })
+  if ('error' in importResult) {
+    console.log(`   Error: ${importResult.message}`)
+  } else {
+    console.log(`   Import: ${importResult.import}`)
+    console.log(`   Path: ${importResult.path}`)
+  }
+
+  // Test 14: Generate import with types
+  console.log('\n14. Testing generate_import with types (Button):')
+  const typedImportResult = generateImport({ name: 'Button', includeTypes: true })
+  if ('error' in typedImportResult) {
+    console.log(`   Error: ${typedImportResult.message}`)
+  } else {
+    console.log(`   Import: ${typedImportResult.import}`)
+    console.log(`   Type Import: ${typedImportResult.typeImport}`)
+  }
+
+  // Test 15: Generate usage
+  console.log('\n15. Testing generate_usage (Button with props):')
+  const usageResult = generateUsage({
+    name: 'Button',
+    props: { variant: 'destructive', size: 'lg' },
+    children: 'Delete'
+  })
+  if ('error' in usageResult) {
+    console.log(`   Error: ${usageResult.message}`)
+  } else {
+    console.log(`   Usage: ${usageResult.usage}`)
+    console.log(`   Import: ${usageResult.import}`)
+  }
+
+  // Test 16: Generate usage with default props
+  console.log('\n16. Testing generate_usage (Button default):')
+  const defaultUsageResult = generateUsage({
+    name: 'Button',
+    children: 'Click me'
+  })
+  if ('error' in defaultUsageResult) {
+    console.log(`   Error: ${defaultUsageResult.message}`)
+  } else {
+    console.log(`   Usage: ${defaultUsageResult.usage}`)
+  }
+
+  // Test 17: Get component examples
+  console.log('\n17. Testing get_component_examples (Button):')
+  const examplesResult = await getComponentExamples({ name: 'Button' })
+  if ('error' in examplesResult) {
+    console.log(`   Error: ${examplesResult.message}`)
+  } else {
+    console.log(`   Component: ${examplesResult.componentName}`)
+    console.log(`   Examples: ${examplesResult.examples.length}`)
+    console.log(`   Composition Patterns: ${examplesResult.compositionPatterns.length}`)
+    if (examplesResult.examples.length > 0) {
+      console.log(`   First example: ${examplesResult.examples[0].name}`)
+    }
+  }
+
+  // Test 18: Get component examples with filter
+  console.log('\n18. Testing get_component_examples with filter (Button, "form"):')
+  const filteredExamples = await getComponentExamples({ name: 'Button', pattern: 'form' })
+  if ('error' in filteredExamples) {
+    console.log(`   Error: ${filteredExamples.message}`)
+  } else {
+    console.log(`   Filtered examples: ${filteredExamples.examples.length}`)
+    console.log(`   Filtered patterns: ${filteredExamples.compositionPatterns.length}`)
+  }
+}
+
+async function runTests() {
+  await runPhase1Tests()
+  await runPhase2Tests()
 
   console.log('\n' + '='.repeat(50))
   console.log('All tests completed successfully!')
