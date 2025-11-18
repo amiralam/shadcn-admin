@@ -232,15 +232,29 @@ export class AgentAPI {
     // Import validation helper
     const { validatePropsAgainstSchema } = require('./validators')
 
+    // Map of documented components to their schema paths
+    const schemaMap: Record<string, string> = {
+      'Button': '../components/atoms/button/Button.schema.json',
+      'Input': '../components/atoms/input/Input.schema.json',
+      'Label': '../components/atoms/label/Label.schema.json',
+      'Checkbox': '../components/atoms/checkbox/Checkbox.schema.json',
+      'Select': '../components/atoms/select/Select.schema.json',
+      'Card': '../components/atoms/card/Card.schema.json',
+      'Textarea': '../components/atoms/textarea/Textarea.schema.json',
+      'Badge': '../components/atoms/badge/Badge.schema.json',
+      'Switch': '../components/atoms/switch/Switch.schema.json',
+    }
+
     // Try to load schema synchronously for validation
     try {
-      // For Button (our documented component), we can validate
-      if (component.name === 'Button') {
-        const buttonSchema = require('../components/atoms/button/Button.schema.json')
-        return validatePropsAgainstSchema(buttonSchema, props)
+      const schemaPath = schemaMap[component.name]
+      if (schemaPath) {
+        const schema = require(schemaPath)
+        return validatePropsAgainstSchema(schema, props)
       }
-    } catch {
+    } catch (error) {
       // Schema not loadable, skip validation
+      console.warn(`Failed to load schema for ${componentName}:`, error)
     }
 
     return {

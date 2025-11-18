@@ -1,0 +1,147 @@
+{
+  "$schema": "../../../registry/schemas/component-schema.json",
+  "componentName": "Badge",
+  "category": "atom",
+  "description": "A small status indicator or label for categorization and highlighting",
+  "version": "1.0.0",
+
+  "props": {
+    "variant": {
+      "type": "enum",
+      "values": ["default", "secondary", "destructive", "outline"],
+      "default": "default",
+      "description": "Visual style variant"
+    },
+    "asChild": {
+      "type": "boolean",
+      "default": false,
+      "description": "Render as child element (polymorphic)"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes"
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": ["@radix-ui/react-slot", "class-variance-authority"],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": false,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Ensure sufficient color contrast for all variants. Use aria-label if badge text is not descriptive."
+  },
+
+  "usage": {
+    "complexity": "simple",
+    "commonUseCases": [
+      "Status indicators",
+      "Category labels",
+      "Notification counts",
+      "Tags and keywords",
+      "Version labels"
+    ],
+    "bestPractices": [
+      "Keep text short and concise",
+      "Use appropriate variant for meaning",
+      "Combine with icons for clarity",
+      "Use asChild for link badges",
+      "Ensure color conveys meaning accessibly"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Default Badge",
+      "description": "Primary colored badge",
+      "code": "<Badge>Default</Badge>"
+    },
+    {
+      "name": "Variants",
+      "description": "All badge variants",
+      "code": "<div className=\"flex gap-2\">\n  <Badge>Default</Badge>\n  <Badge variant=\"secondary\">Secondary</Badge>\n  <Badge variant=\"destructive\">Destructive</Badge>\n  <Badge variant=\"outline\">Outline</Badge>\n</div>"
+    },
+    {
+      "name": "With Icon",
+      "description": "Badge with leading icon",
+      "code": "<Badge><CheckIcon className=\"size-3\" />Verified</Badge>"
+    },
+    {
+      "name": "As Link",
+      "description": "Badge rendered as link",
+      "code": "<Badge asChild>\n  <a href=\"/status\">View Status</a>\n</Badge>"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "Use for small status indicators, labels, counts, and tags that need visual prominence.",
+    "whenNotToUse": "Don't use for long text content (use text), primary actions (use Button), or alerts (use Alert component)",
+    "alternatives": [
+      "Button - for interactive actions",
+      "Alert - for important messages",
+      "Tag input - for editable tags"
+    ],
+    "commonMistakes": [
+      "Using badges for actions (use buttons instead)",
+      "Making badges too large or with too much text",
+      "Not considering color blindness (add icons)",
+      "Using destructive variant for non-error states"
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Status Badge",
+        "description": "Badge showing item status",
+        "example": "<div className=\"flex items-center gap-2\">\n  <span>Order #12345</span>\n  <Badge variant=\"secondary\">Processing</Badge>\n</div>"
+      },
+      {
+        "pattern": "Notification Count",
+        "description": "Badge as notification counter",
+        "example": "<Button variant=\"ghost\" size=\"icon\" className=\"relative\">\n  <BellIcon />\n  <Badge className=\"absolute -top-1 -right-1 h-5 w-5 p-0\">3</Badge>\n</Button>"
+      },
+      {
+        "pattern": "Tag List",
+        "description": "Multiple badges as tags",
+        "example": "<div className=\"flex flex-wrap gap-1\">\n  {tags.map(tag => (\n    <Badge key={tag} variant=\"outline\">{tag}</Badge>\n  ))}\n</div>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["primary", "primary-foreground", "secondary", "secondary-foreground", "destructive", "foreground", "accent", "accent-foreground", "ring"],
+    "spacing": [],
+    "typography": [],
+    "radius": ["md"]
+  },
+
+  "testing": {
+    "unitTests": false,
+    "accessibilityTests": false,
+    "visualRegressionTests": false,
+    "coverage": 0
+  },
+
+  "storybook": false,
+
+  "tags": ["atom", "display", "status", "label"],
+
+  "relatedComponents": ["Button", "Alert", "Tag"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-18",
+      "changes": [
+        "Initial release with full AI-ready documentation",
+        "Four variants: default, secondary, destructive, outline",
+        "Polymorphic component support with asChild",
+        "Full accessibility support"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "$schema": "../../../registry/schemas/component-schema.json",
+  "componentName": "Checkbox",
+  "category": "atom",
+  "description": "A checkbox input for boolean selections with support for indeterminate state",
+  "version": "1.0.0",
+
+  "props": {
+    "checked": {
+      "type": "boolean | 'indeterminate'",
+      "required": false,
+      "description": "Controlled checked state"
+    },
+    "defaultChecked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Default checked state for uncontrolled usage"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the checkbox is disabled"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the checkbox is required"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "Name for form submission"
+    },
+    "value": {
+      "type": "string",
+      "default": "on",
+      "description": "Value for form submission"
+    },
+    "onCheckedChange": {
+      "type": "(checked: boolean | 'indeterminate') => void",
+      "required": false,
+      "description": "Callback when checked state changes"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes"
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": ["@radix-ui/react-checkbox", "lucide-react"],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": true,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Supports keyboard toggle with Space. Screen readers announce checked state. Use with Label for accessible naming."
+  },
+
+  "usage": {
+    "complexity": "simple",
+    "commonUseCases": [
+      "Terms acceptance",
+      "Multi-select lists",
+      "Feature toggles",
+      "Preferences",
+      "Filters"
+    ],
+    "bestPractices": [
+      "Always use with a Label component",
+      "Use for independent binary choices",
+      "Use RadioGroup for mutually exclusive options",
+      "Consider Switch for instant-action toggles"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Basic Checkbox",
+      "description": "Simple checkbox",
+      "code": "<Checkbox id=\"terms\" />"
+    },
+    {
+      "name": "With Label",
+      "description": "Checkbox with associated label",
+      "code": "<div className=\"flex items-center gap-2\">\n  <Checkbox id=\"terms\" />\n  <Label htmlFor=\"terms\">Accept terms and conditions</Label>\n</div>"
+    },
+    {
+      "name": "Controlled",
+      "description": "Controlled checkbox state",
+      "code": "<Checkbox checked={isChecked} onCheckedChange={setIsChecked} />"
+    },
+    {
+      "name": "Disabled",
+      "description": "Disabled state",
+      "code": "<Checkbox disabled checked />"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "Use for binary choices that are independent of each other - terms acceptance, feature toggles, multi-select lists",
+    "whenNotToUse": "Don't use for mutually exclusive options (use RadioGroup), instant-action toggles (use Switch), or single selection from list (use Select)",
+    "alternatives": [
+      "Switch - for instant-action on/off toggles",
+      "RadioGroup - for mutually exclusive options",
+      "Select - for selecting from a list"
+    ],
+    "commonMistakes": [
+      "Not using with Label (accessibility issue)",
+      "Using checkbox for mutually exclusive options",
+      "Forgetting onCheckedChange for controlled usage",
+      "Not handling indeterminate state in trees"
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Terms Acceptance",
+        "description": "Checkbox for accepting terms",
+        "example": "<div className=\"flex items-start gap-2\">\n  <Checkbox id=\"terms\" />\n  <Label htmlFor=\"terms\" className=\"text-sm\">\n    I agree to the terms of service\n  </Label>\n</div>"
+      },
+      {
+        "pattern": "Checkbox List",
+        "description": "Multiple checkboxes for multi-select",
+        "example": "<div className=\"space-y-2\">\n  {options.map(option => (\n    <div key={option.id} className=\"flex items-center gap-2\">\n      <Checkbox id={option.id} />\n      <Label htmlFor={option.id}>{option.label}</Label>\n    </div>\n  ))}\n</div>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["input", "primary", "primary-foreground", "ring", "destructive"],
+    "spacing": [],
+    "typography": [],
+    "radius": ["sm"]
+  },
+
+  "testing": {
+    "unitTests": false,
+    "accessibilityTests": false,
+    "visualRegressionTests": false,
+    "coverage": 0
+  },
+
+  "storybook": false,
+
+  "tags": ["atom", "form", "interactive", "input"],
+
+  "relatedComponents": ["Label", "RadioGroup", "Switch", "Form"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-17",
+      "changes": [
+        "Initial release with full AI-ready documentation",
+        "Built on Radix UI Checkbox primitive",
+        "Support for indeterminate state",
+        "Full accessibility support"
+      ]
+    }
+  ]
+}

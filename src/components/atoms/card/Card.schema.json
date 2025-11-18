@@ -1,0 +1,200 @@
+{
+  "$schema": "../../../registry/schemas/component-schema.json",
+  "componentName": "Card",
+  "category": "molecule",
+  "description": "A container component for grouping related content with header, body, and footer sections",
+  "version": "1.0.0",
+
+  "props": {
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes"
+    }
+  },
+
+  "subComponents": {
+    "CardHeader": {
+      "description": "Container for card title and description",
+      "props": {
+        "className": {
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS classes"
+        }
+      }
+    },
+    "CardTitle": {
+      "description": "Main title of the card",
+      "props": {
+        "className": {
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS classes"
+        }
+      }
+    },
+    "CardDescription": {
+      "description": "Secondary description text",
+      "props": {
+        "className": {
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS classes"
+        }
+      }
+    },
+    "CardAction": {
+      "description": "Action buttons or controls in the header",
+      "props": {
+        "className": {
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS classes"
+        }
+      }
+    },
+    "CardContent": {
+      "description": "Main content area of the card",
+      "props": {
+        "className": {
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS classes"
+        }
+      }
+    },
+    "CardFooter": {
+      "description": "Footer area for actions or metadata",
+      "props": {
+        "className": {
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS classes"
+        }
+      }
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": [],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": false,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Use semantic HTML within card. CardTitle should use appropriate heading level. Interactive elements in card should be keyboard accessible."
+  },
+
+  "usage": {
+    "complexity": "simple",
+    "commonUseCases": [
+      "Dashboard widgets",
+      "Content previews",
+      "Settings panels",
+      "Profile displays",
+      "Product listings",
+      "Form containers"
+    ],
+    "bestPractices": [
+      "Use CardHeader for title and description",
+      "Keep content focused and related",
+      "Use CardFooter for primary actions",
+      "Consider CardAction for secondary actions",
+      "Add border-b to CardHeader for visual separation"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Basic Card",
+      "description": "Simple card with title and content",
+      "code": "<Card>\n  <CardHeader>\n    <CardTitle>Card Title</CardTitle>\n    <CardDescription>Card description goes here.</CardDescription>\n  </CardHeader>\n  <CardContent>\n    <p>Card content goes here.</p>\n  </CardContent>\n</Card>"
+    },
+    {
+      "name": "Card with Footer",
+      "description": "Card with action buttons in footer",
+      "code": "<Card>\n  <CardHeader>\n    <CardTitle>Create Project</CardTitle>\n    <CardDescription>Deploy your new project in one-click.</CardDescription>\n  </CardHeader>\n  <CardContent>\n    <form>\n      <div className=\"grid w-full items-center gap-4\">\n        <div className=\"flex flex-col space-y-1.5\">\n          <Label htmlFor=\"name\">Name</Label>\n          <Input id=\"name\" placeholder=\"Project name\" />\n        </div>\n      </div>\n    </form>\n  </CardContent>\n  <CardFooter className=\"flex justify-between\">\n    <Button variant=\"outline\">Cancel</Button>\n    <Button>Deploy</Button>\n  </CardFooter>\n</Card>"
+    },
+    {
+      "name": "Card with Action",
+      "description": "Card with header action button",
+      "code": "<Card>\n  <CardHeader>\n    <CardTitle>Notifications</CardTitle>\n    <CardDescription>You have 3 unread messages.</CardDescription>\n    <CardAction>\n      <Button variant=\"ghost\" size=\"sm\">Mark all read</Button>\n    </CardAction>\n  </CardHeader>\n  <CardContent>\n    {/* Notification list */}\n  </CardContent>\n</Card>"
+    },
+    {
+      "name": "Dashboard Widget",
+      "description": "Compact card for dashboard stats",
+      "code": "<Card>\n  <CardHeader className=\"pb-2\">\n    <CardDescription>Total Revenue</CardDescription>\n    <CardTitle className=\"text-3xl\">$45,231.89</CardTitle>\n  </CardHeader>\n  <CardContent>\n    <p className=\"text-xs text-muted-foreground\">+20.1% from last month</p>\n  </CardContent>\n</Card>"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "Use for grouping related content into a distinct visual container. Ideal for dashboards, settings, forms, and content previews.",
+    "whenNotToUse": "Don't use for simple lists (use List), navigation (use Nav), or full-page layouts (use proper layout components)",
+    "alternatives": [
+      "Dialog - for modal content that requires user attention",
+      "Sheet - for slide-out panels",
+      "Accordion - for collapsible content sections"
+    ],
+    "commonMistakes": [
+      "Overloading cards with too much content",
+      "Not using sub-components properly (mixing div with CardContent)",
+      "Forgetting to use CardContent for padding",
+      "Using cards for non-related content groupings"
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Settings Card",
+        "description": "Card for a settings section",
+        "example": "<Card>\n  <CardHeader>\n    <CardTitle>Account Settings</CardTitle>\n    <CardDescription>Manage your account preferences</CardDescription>\n  </CardHeader>\n  <CardContent className=\"space-y-4\">\n    <div className=\"flex items-center justify-between\">\n      <div>\n        <p className=\"font-medium\">Email notifications</p>\n        <p className=\"text-sm text-muted-foreground\">Receive emails about activity</p>\n      </div>\n      <Switch />\n    </div>\n  </CardContent>\n  <CardFooter>\n    <Button>Save changes</Button>\n  </CardFooter>\n</Card>"
+      },
+      {
+        "pattern": "Stats Grid",
+        "description": "Grid of stat cards for dashboards",
+        "example": "<div className=\"grid gap-4 md:grid-cols-2 lg:grid-cols-4\">\n  <Card>\n    <CardHeader className=\"pb-2\">\n      <CardDescription>Total Users</CardDescription>\n      <CardTitle className=\"text-2xl\">2,350</CardTitle>\n    </CardHeader>\n    <CardContent>\n      <p className=\"text-xs text-muted-foreground\">+180 this week</p>\n    </CardContent>\n  </Card>\n  {/* More stat cards */}\n</div>"
+      },
+      {
+        "pattern": "Product Card",
+        "description": "Card for displaying product info",
+        "example": "<Card className=\"overflow-hidden\">\n  <img src=\"/product.jpg\" alt=\"Product\" className=\"w-full h-48 object-cover\" />\n  <CardHeader>\n    <CardTitle>Product Name</CardTitle>\n    <CardDescription>$99.00</CardDescription>\n  </CardHeader>\n  <CardFooter>\n    <Button className=\"w-full\">Add to Cart</Button>\n  </CardFooter>\n</Card>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["card", "card-foreground", "muted-foreground", "border"],
+    "spacing": [],
+    "typography": [],
+    "radius": ["xl"]
+  },
+
+  "testing": {
+    "unitTests": false,
+    "accessibilityTests": false,
+    "visualRegressionTests": false,
+    "coverage": 0
+  },
+
+  "storybook": false,
+
+  "tags": ["molecule", "container", "layout", "display"],
+
+  "relatedComponents": ["Dialog", "Sheet", "Accordion", "Separator"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-18",
+      "changes": [
+        "Initial release with full AI-ready documentation",
+        "Added CardAction sub-component",
+        "Container queries for responsive header",
+        "Full accessibility support"
+      ]
+    }
+  ]
+}

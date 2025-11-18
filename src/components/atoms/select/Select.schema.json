@@ -1,0 +1,236 @@
+{
+  "$schema": "../../../registry/schemas/component-schema.json",
+  "componentName": "Select",
+  "category": "molecule",
+  "description": "A dropdown select component for choosing from a list of options",
+  "version": "1.0.0",
+
+  "props": {
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "Controlled value of the select"
+    },
+    "defaultValue": {
+      "type": "string",
+      "required": false,
+      "description": "Default value for uncontrolled usage"
+    },
+    "onValueChange": {
+      "type": "(value: string) => void",
+      "required": false,
+      "description": "Callback when value changes"
+    },
+    "open": {
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled open state"
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "default": false,
+      "description": "Default open state for uncontrolled usage"
+    },
+    "onOpenChange": {
+      "type": "(open: boolean) => void",
+      "required": false,
+      "description": "Callback when open state changes"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the select is disabled"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the select is required"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "Name for form submission"
+    }
+  },
+
+  "subComponents": {
+    "SelectTrigger": {
+      "description": "The button that toggles the select dropdown",
+      "props": {
+        "size": {
+          "type": "enum",
+          "values": ["sm", "default"],
+          "default": "default",
+          "description": "Size variant of the trigger"
+        },
+        "className": {
+          "type": "string",
+          "required": false,
+          "description": "Additional CSS classes"
+        }
+      }
+    },
+    "SelectValue": {
+      "description": "Displays the selected value",
+      "props": {
+        "placeholder": {
+          "type": "string",
+          "required": false,
+          "description": "Placeholder text when no value is selected"
+        }
+      }
+    },
+    "SelectContent": {
+      "description": "Container for the select options",
+      "props": {
+        "position": {
+          "type": "enum",
+          "values": ["item-aligned", "popper"],
+          "default": "popper",
+          "description": "Position strategy for the content"
+        }
+      }
+    },
+    "SelectItem": {
+      "description": "Individual selectable option",
+      "props": {
+        "value": {
+          "type": "string",
+          "required": true,
+          "description": "Value of the item"
+        },
+        "disabled": {
+          "type": "boolean",
+          "default": false,
+          "description": "Whether the item is disabled"
+        }
+      }
+    },
+    "SelectGroup": {
+      "description": "Groups related items together"
+    },
+    "SelectLabel": {
+      "description": "Label for a group of items"
+    },
+    "SelectSeparator": {
+      "description": "Visual separator between items"
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": ["@radix-ui/react-select", "lucide-react"],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": true,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Full keyboard navigation with arrow keys. Screen readers announce selected value and options. Focus is trapped within dropdown when open."
+  },
+
+  "usage": {
+    "complexity": "moderate",
+    "commonUseCases": [
+      "Form field selection",
+      "Settings options",
+      "Filter controls",
+      "Country/region pickers",
+      "Status selection"
+    ],
+    "bestPractices": [
+      "Always include a placeholder or default value",
+      "Use SelectGroup and SelectLabel for long lists",
+      "Keep option text concise",
+      "Use disabled state for unavailable options",
+      "Consider native select for mobile accessibility"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Basic Select",
+      "description": "Simple select with options",
+      "code": "<Select>\n  <SelectTrigger className=\"w-[180px]\">\n    <SelectValue placeholder=\"Select option\" />\n  </SelectTrigger>\n  <SelectContent>\n    <SelectItem value=\"option1\">Option 1</SelectItem>\n    <SelectItem value=\"option2\">Option 2</SelectItem>\n    <SelectItem value=\"option3\">Option 3</SelectItem>\n  </SelectContent>\n</Select>"
+    },
+    {
+      "name": "Controlled Select",
+      "description": "Select with controlled state",
+      "code": "<Select value={value} onValueChange={setValue}>\n  <SelectTrigger className=\"w-[200px]\">\n    <SelectValue placeholder=\"Select a fruit\" />\n  </SelectTrigger>\n  <SelectContent>\n    <SelectItem value=\"apple\">Apple</SelectItem>\n    <SelectItem value=\"banana\">Banana</SelectItem>\n    <SelectItem value=\"orange\">Orange</SelectItem>\n  </SelectContent>\n</Select>"
+    },
+    {
+      "name": "Grouped Select",
+      "description": "Select with grouped options",
+      "code": "<Select>\n  <SelectTrigger className=\"w-[280px]\">\n    <SelectValue placeholder=\"Select a timezone\" />\n  </SelectTrigger>\n  <SelectContent>\n    <SelectGroup>\n      <SelectLabel>North America</SelectLabel>\n      <SelectItem value=\"est\">Eastern Standard Time</SelectItem>\n      <SelectItem value=\"cst\">Central Standard Time</SelectItem>\n      <SelectItem value=\"pst\">Pacific Standard Time</SelectItem>\n    </SelectGroup>\n    <SelectSeparator />\n    <SelectGroup>\n      <SelectLabel>Europe</SelectLabel>\n      <SelectItem value=\"gmt\">Greenwich Mean Time</SelectItem>\n      <SelectItem value=\"cet\">Central European Time</SelectItem>\n    </SelectGroup>\n  </SelectContent>\n</Select>"
+    },
+    {
+      "name": "Small Size",
+      "description": "Compact select trigger",
+      "code": "<Select>\n  <SelectTrigger size=\"sm\" className=\"w-[120px]\">\n    <SelectValue placeholder=\"Size\" />\n  </SelectTrigger>\n  <SelectContent>\n    <SelectItem value=\"sm\">Small</SelectItem>\n    <SelectItem value=\"md\">Medium</SelectItem>\n    <SelectItem value=\"lg\">Large</SelectItem>\n  </SelectContent>\n</Select>"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "Use for selecting a single option from a list of 5+ options where space is limited. Ideal for forms, filters, and settings.",
+    "whenNotToUse": "Don't use for 2-3 options (use RadioGroup), binary choices (use Switch/Checkbox), or multiple selections (use multi-select or checkboxes)",
+    "alternatives": [
+      "RadioGroup - for 2-5 mutually exclusive options that should all be visible",
+      "Combobox - for searchable/filterable lists",
+      "DropdownMenu - for actions instead of selection"
+    ],
+    "commonMistakes": [
+      "Not providing a placeholder value",
+      "Using Select for very long lists without search (use Combobox)",
+      "Forgetting SelectValue inside SelectTrigger",
+      "Not handling the empty/undefined state"
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Form Field",
+        "description": "Select with label and description",
+        "example": "<div className=\"space-y-2\">\n  <Label htmlFor=\"status\">Status</Label>\n  <Select>\n    <SelectTrigger id=\"status\" className=\"w-full\">\n      <SelectValue placeholder=\"Select status\" />\n    </SelectTrigger>\n    <SelectContent>\n      <SelectItem value=\"active\">Active</SelectItem>\n      <SelectItem value=\"inactive\">Inactive</SelectItem>\n      <SelectItem value=\"pending\">Pending</SelectItem>\n    </SelectContent>\n  </Select>\n  <p className=\"text-sm text-muted-foreground\">Choose the current status</p>\n</div>"
+      },
+      {
+        "pattern": "Filter Bar",
+        "description": "Multiple selects for filtering",
+        "example": "<div className=\"flex gap-2\">\n  <Select>\n    <SelectTrigger size=\"sm\" className=\"w-[100px]\">\n      <SelectValue placeholder=\"Status\" />\n    </SelectTrigger>\n    <SelectContent>\n      <SelectItem value=\"all\">All</SelectItem>\n      <SelectItem value=\"active\">Active</SelectItem>\n      <SelectItem value=\"archived\">Archived</SelectItem>\n    </SelectContent>\n  </Select>\n  <Select>\n    <SelectTrigger size=\"sm\" className=\"w-[100px]\">\n      <SelectValue placeholder=\"Sort\" />\n    </SelectTrigger>\n    <SelectContent>\n      <SelectItem value=\"newest\">Newest</SelectItem>\n      <SelectItem value=\"oldest\">Oldest</SelectItem>\n      <SelectItem value=\"name\">Name</SelectItem>\n    </SelectContent>\n  </Select>\n</div>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["input", "popover", "popover-foreground", "muted-foreground", "accent", "accent-foreground", "ring", "destructive", "border"],
+    "spacing": [],
+    "typography": [],
+    "radius": ["md", "sm"]
+  },
+
+  "testing": {
+    "unitTests": false,
+    "accessibilityTests": false,
+    "visualRegressionTests": false,
+    "coverage": 0
+  },
+
+  "storybook": false,
+
+  "tags": ["molecule", "form", "interactive", "input", "dropdown"],
+
+  "relatedComponents": ["RadioGroup", "Combobox", "DropdownMenu", "Form"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-18",
+      "changes": [
+        "Initial release with full AI-ready documentation",
+        "Built on Radix UI Select primitive",
+        "Support for grouped options",
+        "Size variants for trigger",
+        "Full accessibility support"
+      ]
+    }
+  ]
+}

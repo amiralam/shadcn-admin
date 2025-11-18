@@ -1,0 +1,175 @@
+{
+  "$schema": "../../../registry/schemas/component-schema.json",
+  "componentName": "Textarea",
+  "category": "atom",
+  "description": "A multi-line text input for longer form content",
+  "version": "1.0.0",
+
+  "props": {
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "description": "Placeholder text"
+    },
+    "value": {
+      "type": "string",
+      "required": false,
+      "description": "Controlled value"
+    },
+    "defaultValue": {
+      "type": "string",
+      "required": false,
+      "description": "Default value for uncontrolled usage"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the textarea is disabled"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the textarea is required"
+    },
+    "readOnly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the textarea is read-only"
+    },
+    "rows": {
+      "type": "number",
+      "required": false,
+      "description": "Number of visible rows"
+    },
+    "maxLength": {
+      "type": "number",
+      "required": false,
+      "description": "Maximum number of characters"
+    },
+    "onChange": {
+      "type": "(e: React.ChangeEvent<HTMLTextAreaElement>) => void",
+      "required": false,
+      "description": "Callback when value changes"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes"
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": [],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": true,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Use with Label for accessible naming. Supports aria-invalid for error states. Use aria-describedby for help text."
+  },
+
+  "usage": {
+    "complexity": "simple",
+    "commonUseCases": [
+      "Comments and feedback",
+      "Message composition",
+      "Notes and descriptions",
+      "Multi-line form fields",
+      "Bio/about sections"
+    ],
+    "bestPractices": [
+      "Always use with a Label component",
+      "Set appropriate rows for expected content",
+      "Use maxLength for character limits",
+      "Show character count for limited fields",
+      "Consider auto-resize for better UX"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Basic Textarea",
+      "description": "Simple textarea",
+      "code": "<Textarea placeholder=\"Type your message...\" />"
+    },
+    {
+      "name": "With Label",
+      "description": "Textarea with associated label",
+      "code": "<div className=\"space-y-2\">\n  <Label htmlFor=\"message\">Message</Label>\n  <Textarea id=\"message\" placeholder=\"Type your message here...\" />\n</div>"
+    },
+    {
+      "name": "With Character Count",
+      "description": "Textarea with max length and counter",
+      "code": "<div className=\"space-y-2\">\n  <Label htmlFor=\"bio\">Bio</Label>\n  <Textarea id=\"bio\" maxLength={160} value={bio} onChange={(e) => setBio(e.target.value)} />\n  <p className=\"text-sm text-muted-foreground\">{bio.length}/160 characters</p>\n</div>"
+    },
+    {
+      "name": "Disabled",
+      "description": "Disabled textarea",
+      "code": "<Textarea disabled placeholder=\"Cannot edit\" />"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "Use for multi-line text input where users need to enter longer content like comments, descriptions, or messages.",
+    "whenNotToUse": "Don't use for single-line input (use Input), rich text (use editor), or code (use code editor)",
+    "alternatives": [
+      "Input - for single-line text",
+      "Rich text editor - for formatted content",
+      "Code editor - for code with syntax highlighting"
+    ],
+    "commonMistakes": [
+      "Not using with Label (accessibility issue)",
+      "Not setting appropriate initial height",
+      "Forgetting to handle controlled state properly",
+      "Not showing character limits to users"
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Form Field",
+        "description": "Textarea with label and description",
+        "example": "<div className=\"space-y-2\">\n  <Label htmlFor=\"feedback\">Feedback</Label>\n  <Textarea id=\"feedback\" placeholder=\"Share your thoughts...\" rows={4} />\n  <p className=\"text-sm text-muted-foreground\">Your feedback helps us improve</p>\n</div>"
+      },
+      {
+        "pattern": "Comment Box",
+        "description": "Textarea for submitting comments",
+        "example": "<form className=\"space-y-4\">\n  <Textarea placeholder=\"Write a comment...\" />\n  <div className=\"flex justify-end\">\n    <Button type=\"submit\">Post Comment</Button>\n  </div>\n</form>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["input", "muted-foreground", "ring", "destructive"],
+    "spacing": [],
+    "typography": [],
+    "radius": ["md"]
+  },
+
+  "testing": {
+    "unitTests": false,
+    "accessibilityTests": false,
+    "visualRegressionTests": false,
+    "coverage": 0
+  },
+
+  "storybook": false,
+
+  "tags": ["atom", "form", "input", "text"],
+
+  "relatedComponents": ["Input", "Label", "Form"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-18",
+      "changes": [
+        "Initial release with full AI-ready documentation",
+        "Field-sizing content for auto-resize",
+        "Full accessibility support"
+      ]
+    }
+  ]
+}

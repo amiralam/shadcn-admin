@@ -1,0 +1,181 @@
+{
+  "$schema": "../../../registry/schemas/component-schema.json",
+  "componentName": "Input",
+  "category": "atom",
+  "description": "A text input field for user data entry with support for various input types and validation states",
+  "version": "1.0.0",
+
+  "props": {
+    "type": {
+      "type": "enum",
+      "values": ["text", "email", "password", "number", "tel", "url", "search", "date", "time", "file"],
+      "default": "text",
+      "description": "HTML input type"
+    },
+    "placeholder": {
+      "type": "string",
+      "required": false,
+      "description": "Placeholder text shown when input is empty"
+    },
+    "value": {
+      "type": "string | number",
+      "required": false,
+      "description": "Controlled input value"
+    },
+    "defaultValue": {
+      "type": "string | number",
+      "required": false,
+      "description": "Default value for uncontrolled input"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is disabled"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is required"
+    },
+    "readOnly": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the input is read-only"
+    },
+    "onChange": {
+      "type": "(event: React.ChangeEvent<HTMLInputElement>) => void",
+      "required": false,
+      "description": "Change event handler"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes"
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": [],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": true,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Supports aria-invalid for validation states, aria-describedby for error messages, and aria-label for accessibility"
+  },
+
+  "usage": {
+    "complexity": "simple",
+    "commonUseCases": [
+      "Form text fields",
+      "Email input",
+      "Password input",
+      "Search fields",
+      "Number inputs",
+      "File uploads"
+    ],
+    "bestPractices": [
+      "Always use with a Label component",
+      "Provide placeholder text for guidance",
+      "Use appropriate input type for data",
+      "Show validation errors with aria-invalid",
+      "Include aria-describedby for error messages"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Basic Text Input",
+      "description": "Simple text input",
+      "code": "<Input placeholder=\"Enter your name\" />"
+    },
+    {
+      "name": "Email Input",
+      "description": "Input for email addresses",
+      "code": "<Input type=\"email\" placeholder=\"email@example.com\" />"
+    },
+    {
+      "name": "With Label",
+      "description": "Input with associated label",
+      "code": "<div>\n  <Label htmlFor=\"email\">Email</Label>\n  <Input id=\"email\" type=\"email\" />\n</div>"
+    },
+    {
+      "name": "Disabled Input",
+      "description": "Disabled state",
+      "code": "<Input disabled placeholder=\"Cannot edit\" />"
+    },
+    {
+      "name": "With Validation Error",
+      "description": "Input showing validation error",
+      "code": "<Input aria-invalid=\"true\" aria-describedby=\"error\" />"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "Use for single-line text input in forms - names, emails, passwords, numbers, search queries",
+    "whenNotToUse": "Don't use for multi-line text (use Textarea), selections (use Select), or boolean choices (use Checkbox/Switch)",
+    "alternatives": [
+      "Textarea - for multi-line text",
+      "Select - for predefined options",
+      "Checkbox - for boolean choices",
+      "RadioGroup - for single selection from options"
+    ],
+    "commonMistakes": [
+      "Not associating input with Label (use htmlFor/id)",
+      "Using wrong input type (email for emails, number for numbers)",
+      "Missing placeholder text for guidance",
+      "Not handling validation states with aria-invalid",
+      "Forgetting aria-describedby for error messages"
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Form Field",
+        "description": "Input with label and error message",
+        "example": "<div className=\"space-y-2\">\n  <Label htmlFor=\"email\">Email</Label>\n  <Input id=\"email\" type=\"email\" aria-describedby=\"email-error\" />\n  <p id=\"email-error\" className=\"text-sm text-destructive\">Invalid email</p>\n</div>"
+      },
+      {
+        "pattern": "Search Input",
+        "description": "Input with search icon",
+        "example": "<div className=\"relative\">\n  <SearchIcon className=\"absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4\" />\n  <Input type=\"search\" className=\"pl-9\" placeholder=\"Search...\" />\n</div>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["input", "foreground", "muted-foreground", "ring", "destructive"],
+    "spacing": ["3", "1"],
+    "typography": ["sm", "base"],
+    "radius": ["md"]
+  },
+
+  "testing": {
+    "unitTests": false,
+    "accessibilityTests": false,
+    "visualRegressionTests": false,
+    "coverage": 0
+  },
+
+  "storybook": false,
+
+  "tags": ["atom", "form", "interactive", "input"],
+
+  "relatedComponents": ["Label", "Textarea", "Form", "PasswordInput"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-17",
+      "changes": [
+        "Initial release with full AI-ready documentation",
+        "Support for all standard input types",
+        "Validation state styling",
+        "File input support",
+        "Full accessibility support"
+      ]
+    }
+  ]
+}

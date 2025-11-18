@@ -1,0 +1,166 @@
+{
+  "$schema": "../../../registry/schemas/component-schema.json",
+  "componentName": "Switch",
+  "category": "atom",
+  "description": "A toggle switch for instant on/off actions",
+  "version": "1.0.0",
+
+  "props": {
+    "checked": {
+      "type": "boolean",
+      "required": false,
+      "description": "Controlled checked state"
+    },
+    "defaultChecked": {
+      "type": "boolean",
+      "default": false,
+      "description": "Default checked state for uncontrolled usage"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the switch is disabled"
+    },
+    "required": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether the switch is required"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "description": "Name for form submission"
+    },
+    "value": {
+      "type": "string",
+      "default": "on",
+      "description": "Value for form submission"
+    },
+    "onCheckedChange": {
+      "type": "(checked: boolean) => void",
+      "required": false,
+      "description": "Callback when checked state changes"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes"
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": ["@radix-ui/react-switch"],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": true,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Supports keyboard toggle with Space. Screen readers announce on/off state. Use with Label for accessible naming."
+  },
+
+  "usage": {
+    "complexity": "simple",
+    "commonUseCases": [
+      "Settings toggles",
+      "Feature flags",
+      "Dark mode toggle",
+      "Notification preferences",
+      "Instant-action on/off"
+    ],
+    "bestPractices": [
+      "Always use with a Label component",
+      "Use for instant-action toggles",
+      "Show immediate visual feedback",
+      "Use for binary independent choices",
+      "Consider loading state for async actions"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Basic Switch",
+      "description": "Simple switch toggle",
+      "code": "<Switch id=\"airplane-mode\" />"
+    },
+    {
+      "name": "With Label",
+      "description": "Switch with associated label",
+      "code": "<div className=\"flex items-center gap-2\">\n  <Switch id=\"airplane-mode\" />\n  <Label htmlFor=\"airplane-mode\">Airplane Mode</Label>\n</div>"
+    },
+    {
+      "name": "Controlled",
+      "description": "Controlled switch state",
+      "code": "<Switch checked={isEnabled} onCheckedChange={setIsEnabled} />"
+    },
+    {
+      "name": "Disabled",
+      "description": "Disabled switch",
+      "code": "<Switch disabled checked />"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "Use for instant-action on/off toggles where the action takes effect immediately - settings, preferences, feature toggles.",
+    "whenNotToUse": "Don't use for form submissions that require save action (use Checkbox), mutually exclusive options (use RadioGroup), or selections from lists (use Select)",
+    "alternatives": [
+      "Checkbox - for save-required binary choices",
+      "RadioGroup - for mutually exclusive options",
+      "Select - for selecting from options"
+    ],
+    "commonMistakes": [
+      "Not using with Label (accessibility issue)",
+      "Using for choices that require form submission",
+      "Using for mutually exclusive options",
+      "Not providing immediate visual feedback"
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Settings Row",
+        "description": "Switch in a settings list",
+        "example": "<div className=\"flex items-center justify-between\">\n  <div>\n    <Label htmlFor=\"notifications\">Push Notifications</Label>\n    <p className=\"text-sm text-muted-foreground\">Receive push notifications</p>\n  </div>\n  <Switch id=\"notifications\" />\n</div>"
+      },
+      {
+        "pattern": "Feature Toggle",
+        "description": "Toggle with description",
+        "example": "<div className=\"flex items-start gap-4\">\n  <Switch id=\"beta\" />\n  <div>\n    <Label htmlFor=\"beta\">Beta Features</Label>\n    <p className=\"text-sm text-muted-foreground\">Enable experimental features</p>\n  </div>\n</div>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["primary", "input", "background", "foreground", "primary-foreground", "ring"],
+    "spacing": [],
+    "typography": [],
+    "radius": ["full"]
+  },
+
+  "testing": {
+    "unitTests": false,
+    "accessibilityTests": false,
+    "visualRegressionTests": false,
+    "coverage": 0
+  },
+
+  "storybook": false,
+
+  "tags": ["atom", "form", "interactive", "toggle"],
+
+  "relatedComponents": ["Checkbox", "RadioGroup", "Label", "Form"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-18",
+      "changes": [
+        "Initial release with full AI-ready documentation",
+        "Built on Radix UI Switch primitive",
+        "RTL support",
+        "Full accessibility support"
+      ]
+    }
+  ]
+}

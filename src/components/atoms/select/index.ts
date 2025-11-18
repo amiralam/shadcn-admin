@@ -9,7 +9,7 @@ export {
   SelectSeparator,
   SelectTrigger,
   SelectValue,
-} from '../atoms/select'
+} from './Select'
 
 export type {
   SelectProps,
@@ -22,4 +22,4 @@ export type {
   SelectSeparatorProps,
   SelectTriggerProps,
   SelectValueProps,
-} from '../atoms/select'
+} from './Select'

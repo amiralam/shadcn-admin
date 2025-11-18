@@ -6,7 +6,7 @@ export {
   CardAction,
   CardDescription,
   CardContent,
-} from '../atoms/card'
+} from './Card'
 
 export type {
   CardProps,
@@ -16,4 +16,4 @@ export type {
   CardActionProps,
   CardDescriptionProps,
   CardContentProps,
-} from '../atoms/card'
+} from './Card'

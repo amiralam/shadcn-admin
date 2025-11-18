@@ -1,0 +1,139 @@
+{
+  "$schema": "../../../registry/schemas/component-schema.json",
+  "componentName": "Label",
+  "category": "atom",
+  "description": "A text label for form controls that provides accessible naming and click-to-focus behavior",
+  "version": "1.0.0",
+
+  "props": {
+    "htmlFor": {
+      "type": "string",
+      "required": false,
+      "description": "ID of the form control this label is associated with"
+    },
+    "children": {
+      "type": "ReactNode",
+      "required": true,
+      "description": "Label text content"
+    },
+    "className": {
+      "type": "string",
+      "required": false,
+      "description": "Additional CSS classes"
+    }
+  },
+
+  "dependencies": {
+    "internal": ["cn"],
+    "external": ["@radix-ui/react-label"],
+    "components": []
+  },
+
+  "accessibility": {
+    "ariaSupport": true,
+    "keyboardNavigation": true,
+    "screenReaderOptimized": true,
+    "wcagLevel": "AA",
+    "notes": "Provides accessible naming for form controls. Clicking label focuses associated input. Screen readers announce label text for input."
+  },
+
+  "usage": {
+    "complexity": "simple",
+    "commonUseCases": [
+      "Form field labels",
+      "Checkbox labels",
+      "Radio button labels",
+      "Switch labels"
+    ],
+    "bestPractices": [
+      "Always use htmlFor to associate with form control id",
+      "Keep label text concise and descriptive",
+      "Place label before input (or after for checkboxes)",
+      "Use required indicator (*) for required fields"
+    ]
+  },
+
+  "examples": [
+    {
+      "name": "Basic Label",
+      "description": "Simple label with htmlFor",
+      "code": "<Label htmlFor=\"email\">Email</Label>"
+    },
+    {
+      "name": "With Input",
+      "description": "Label associated with input",
+      "code": "<div>\n  <Label htmlFor=\"name\">Name</Label>\n  <Input id=\"name\" />\n</div>"
+    },
+    {
+      "name": "Required Field",
+      "description": "Label indicating required field",
+      "code": "<Label htmlFor=\"email\">\n  Email <span className=\"text-destructive\">*</span>\n</Label>"
+    },
+    {
+      "name": "With Checkbox",
+      "description": "Label for checkbox",
+      "code": "<div className=\"flex items-center gap-2\">\n  <Checkbox id=\"terms\" />\n  <Label htmlFor=\"terms\">Accept terms</Label>\n</div>"
+    }
+  ],
+
+  "aiGuidance": {
+    "whenToUse": "Use to provide accessible text labels for all form controls (inputs, checkboxes, selects, etc.)",
+    "whenNotToUse": "Don't use for non-form text - use regular text elements. Don't use for button text - use the button's children.",
+    "alternatives": [
+      "Text element - for non-form text",
+      "aria-label - for visually hidden labels",
+      "aria-labelledby - for complex labeling"
+    ],
+    "commonMistakes": [
+      "Forgetting htmlFor attribute (breaks click-to-focus)",
+      "Not matching htmlFor with input id",
+      "Using label for non-form elements",
+      "Placing label too far from input visually"
+    ],
+    "compositionPatterns": [
+      {
+        "pattern": "Form Field",
+        "description": "Standard form field with label",
+        "example": "<div className=\"space-y-2\">\n  <Label htmlFor=\"email\">Email</Label>\n  <Input id=\"email\" type=\"email\" />\n</div>"
+      },
+      {
+        "pattern": "Inline Checkbox",
+        "description": "Checkbox with inline label",
+        "example": "<div className=\"flex items-center gap-2\">\n  <Checkbox id=\"subscribe\" />\n  <Label htmlFor=\"subscribe\">Subscribe to newsletter</Label>\n</div>"
+      }
+    ]
+  },
+
+  "designTokens": {
+    "colors": ["foreground"],
+    "spacing": ["2"],
+    "typography": ["sm"],
+    "radius": []
+  },
+
+  "testing": {
+    "unitTests": false,
+    "accessibilityTests": false,
+    "visualRegressionTests": false,
+    "coverage": 0
+  },
+
+  "storybook": false,
+
+  "tags": ["atom", "form", "typography"],
+
+  "relatedComponents": ["Input", "Checkbox", "RadioGroup", "Switch", "Form"],
+
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2024-11-17",
+      "changes": [
+        "Initial release with full AI-ready documentation",
+        "Built on Radix UI Label primitive",
+        "Automatic disabled state handling",
+        "Full accessibility support"
+      ]
+    }
+  ]
+}
