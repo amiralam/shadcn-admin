@@ -31,7 +31,7 @@ export function createServer(): McpServer {
  */
 function registerTools(server: McpServer): void {
   for (const tool of allTools) {
-    server.tool(tool.name, tool.description, tool.schema, async (args) => {
+    server.tool(tool.name, tool.description, tool.schema, async (args: Record<string, unknown>) => {
       try {
         const result = await tool.handler(args as never)
         return {
